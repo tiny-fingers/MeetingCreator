@@ -2,6 +2,11 @@
 $gradient-start: #ecbbd1;
 $gradient-end: #e2deec;
 
+.navbar {
+  color: #ad3a75;
+  padding: 1vh 2vh 1vh 2vh;
+}
+
 body {
   background: linear-gradient(to left, #ecbbd1, #e2deec);
 }
@@ -40,4 +45,10 @@ body {
   background-color: #d15c98;
   color: #ffffff;
   box-shadow: 0 0 20px #ffffff;
+}
+.main-container {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40vh;
 }
