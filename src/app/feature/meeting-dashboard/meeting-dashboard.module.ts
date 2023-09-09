@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {MeetingDashboardComponent} from "./meeting-dashboard.component";
+import { MeetingDashboardComponent } from './meeting-dashboard.component';
 
 @NgModule({
   declarations: [MeetingDashboardComponent],
