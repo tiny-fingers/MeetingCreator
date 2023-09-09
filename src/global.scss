@@ -1,1 +1,43 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+$gradient-start: #ecbbd1;
+$gradient-end: #e2deec;
+
+body {
+  background: linear-gradient(to left, #ecbbd1, #e2deec);
+}
+
+.btn-outline-white {
+  color: #ad3a75;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-main {
+  color: #ffffff;
+  background-color: #ad3a75;
+  border: 2px solid #ad3a75;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-white:hover {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 10px #d15c98;
+}
+
+.btn-outline-main:hover {
+  background-color: #d15c98;
+  color: #ffffff;
+  box-shadow: 0 0 20px #ffffff;
+}
