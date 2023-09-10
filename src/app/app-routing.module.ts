@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './feature/landing/landing.component';
 import { LoginComponent } from './feature/login/login.component';
 import { MeetingDashboardComponent } from './feature/meeting-dashboard/meeting-dashboard.component';
+import {AuthenticationService} from "./root/authentication/authentication.service";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'meeting-dashboard', component: MeetingDashboardComponent },
-  { path: '', component: LandingComponent },
+  { path: 'dashboard', component: MeetingDashboardComponent, canActivate: [AuthenticationService] },
+  { path: '', component: LandingComponent},
 ];
 
 @NgModule({
