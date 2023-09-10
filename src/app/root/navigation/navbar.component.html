@@ -12,10 +12,10 @@
       <li class="nav-item">
         <a class="nav-link" (click)="onAboutClick()" href="#">About</a>
       </li>
-      <li class="nav-item" *ngIf="!authService.isAuthenticated() && showLoginButton">
+      <li class="nav-item" id="login-button" *ngIf="!authService.isAuthenticated() && showLoginButton">
         <a class="nav-link" href="/login">Login</a>
       </li>
-      <li class="nav-item" *ngIf="authService.isAuthenticated()">
+      <li class="nav-item" id="logout-button" *ngIf="authService.isAuthenticated()">
         <a class="nav-link" (click)="authService.logout()">Log out</a>
       </li>
     </ul>

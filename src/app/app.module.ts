@@ -5,9 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './feature/login/login.module';
-import {NavbarComponent} from "./shared/navbar.component";
+import {NavbarComponent} from "./root/navigation/navbar.component";
 import {AuthenticationService} from "./root/authentication/authentication.service";
-import {NavbarModule} from "./shared/navbar.module";
+import {NavbarModule} from "./root/navigation/navbar.module";
 import {MeetingDashBoardModule} from "./feature/meeting-dashboard/meeting-dashboard.module";
 import {LandingModule} from "./feature/landing/landing.module";
 
