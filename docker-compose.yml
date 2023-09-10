@@ -1,0 +1,16 @@
+services:
+  meeting-creator:
+    build: .
+    ports:
+      - "4200:4200"
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    build: ./mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MEETING_APP_USER: MEETING_CREATOR
+      MEETING_APP_PASSWORD: MEETING_CREATOR
+    ports:
+      - "3306:3306"
