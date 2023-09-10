@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import {AuthenticationService} from "../../root/authentication/authentication.service";
+import {NavItem} from "../../shared/types";
 
 @Component({
   selector: 'app-meeting-dashboard',
@@ -7,13 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./meeting-dashboard.component.scss'],
 })
 export class MeetingDashboardComponent {
-  constructor(private router: Router) {}
+  constructor() {}
 
-  onForgotPasswordClick() {
-    void this.router.navigate(['/forgot-password']);
-  }
-
-  onCreateAccountClick() {
-    void this.router.navigate(['/create-account']);
-  }
+  protected readonly NavItem = NavItem;
 }
