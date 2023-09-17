@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
-
   private apiUrl = 'http://localhost:3000/api/auth';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   canActivate(): boolean {
     if (!this.isAuthenticated()) {
@@ -19,9 +18,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string): Observable<any> {
-    // query credentials from database
-
-    return new Observable(observer => {
+    return new Observable((observer) => {
       observer.next();
       localStorage.setItem('token', username);
       observer.complete();

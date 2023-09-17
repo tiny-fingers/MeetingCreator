@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import {AuthenticationService} from "../../root/authentication/authentication.service";
-import {NavItem} from "../../shared/types";
+import { Meeting } from '../../root/model/Meeting';
+import { MeetingsService } from '../../shared/meetings/meetings.service';
+import { NavItem } from '../../shared/types';
 
 @Component({
   selector: 'app-meeting-dashboard',
@@ -9,7 +9,36 @@ import {NavItem} from "../../shared/types";
   styleUrls: ['./meeting-dashboard.component.scss'],
 })
 export class MeetingDashboardComponent {
-  constructor() {}
+  meetings: Meeting[];
+
+  alertMeetingAdded: boolean = false;
+
+  constructor(private meetingsService: MeetingsService) {
+    this.meetings = meetingsService.getMeetings().sort((a, b) => {
+      return new Date(a.startTime).getTime() - new Date(b.startTime).getTime();
+    });
+  }
 
   protected readonly NavItem = NavItem;
+
+  private hideAlert() {
+    this.alertMeetingAdded = false;
+  }
+
+  protected onAddMeeting(newMeeting: Partial<Meeting>) {
+    this.meetings = this.meetingsService.addMeeting(newMeeting).sort((a, b) => {
+      return new Date(a.startTime).getTime() - new Date(b.startTime).getTime();
+    });
+
+    this.alertMeetingAdded = true;
+    setTimeout(() => {
+      this.hideAlert();
+    }, 3000);
+  }
+
+  protected onDeleteMeeting(meetingId: number) {
+    if (confirm('Are you sure that you want to delete this meeting?')) {
+      this.meetings = this.meetingsService.deleteMeetingById(meetingId);
+    }
+  }
 }

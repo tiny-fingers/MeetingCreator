@@ -1,7 +1,6 @@
-import {Component, Input} from "@angular/core";
-import {Router} from "@angular/router";
-import {AuthenticationService} from "../authentication/authentication.service";
-import {NavItem} from "../../shared/types";
+import { Component, Input } from '@angular/core';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { NavItem } from '../types';
 
 @Component({
   selector: 'app-navbar',

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
+import { NgIf } from '@angular/common';
+import { AuthenticationService } from '../../shared/authentication/authentication.service';
+import { NavbarModule } from '../../shared/navigation/navbar.module';
 import { LandingComponent } from './landing.component';
-import {NavbarComponent} from "../../root/navigation/navbar.component";
-import {AuthenticationService} from "../../root/authentication/authentication.service";
-import {NavbarModule} from "../../root/navigation/navbar.module";
-import {NgIf} from "@angular/common";
 
 @NgModule({
   declarations: [LandingComponent],
@@ -14,4 +12,3 @@ import {NgIf} from "@angular/common";
   bootstrap: [LandingComponent],
 })
 export class LandingModule {}
-

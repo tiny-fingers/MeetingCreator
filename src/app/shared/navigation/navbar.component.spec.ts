@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from "@angular/core/testing";
-import {NavbarComponent} from "./navbar.component";
-import {AuthenticationService} from "../authentication/authentication.service";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { NavbarComponent } from './navbar.component';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -10,9 +10,8 @@ describe('NavbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NavbarComponent],
-      providers: [AuthenticationService]
-    })
-      .compileComponents();
+      providers: [AuthenticationService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

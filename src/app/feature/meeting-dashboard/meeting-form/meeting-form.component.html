@@ -1,0 +1,31 @@
+<div class="form-container">
+    <form [formGroup]="meetingFormGroup" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" formControlName="description" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="startTime">Start Time</label>
+            <input type="datetime-local" class="form-control" id="startTime" formControlName="startTime" required>
+        </div>
+
+        <div class="form-group">
+            <label for="endTime">End Time</label>
+            <input type="datetime-local" class="form-control" id="endTime" formControlName="endTime" required>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="remote" formControlName="remote">
+            <label class="form-check-label" for="remote">Remote</label>
+        </div>
+
+        <button type="submit" class="btn btn-outline-main">Add Meeting</button>
+    </form>
+
+</div>
