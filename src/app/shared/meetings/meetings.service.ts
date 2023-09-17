@@ -5,7 +5,7 @@ import { Meeting } from '../../root/model/Meeting';
   providedIn: 'root',
 })
 export class MeetingsService {
-  private meetings: Meeting[] = [
+  public static meetings: Meeting[] = [
     {
       id: 1,
       title: 'Kickoff',
@@ -48,29 +48,33 @@ export class MeetingsService {
     },
   ];
 
-  getMeetings(): Meeting[] {
-    return this.meetings;
+  static getMeetings(): Meeting[] {
+    return MeetingsService.meetings;
   }
 
-  addMeeting(newMeeting: Partial<Meeting>): Meeting[] {
+  static addMeeting(newMeeting: Partial<Meeting>): Meeting[] {
     const meeting = {
       ...newMeeting,
       createdBy: 1,
-      id: this.meetings.length,
+      id: MeetingsService.meetings.length,
     } as Meeting;
-    this.meetings.push(meeting);
-    return this.meetings;
+    MeetingsService.meetings.push(meeting);
+    return MeetingsService.getMeetings();
   }
 
-  deleteMeetingById(meetingId: number): Meeting[] {
-    this.meetings = this.meetings.filter((meeting) => meeting.id !== meetingId);
-    return this.meetings;
+  static deleteMeetingById(meetingId: number): Meeting[] {
+    MeetingsService.meetings = MeetingsService.meetings.filter(
+      (meeting) => meeting.id !== meetingId,
+    );
+    return MeetingsService.getMeetings();
   }
 
-  updateMeeting(meeting: Meeting): void {
-    const index = this.meetings.findIndex((m) => m.id === meeting.id);
+  static updateMeeting(meeting: Meeting): void {
+    const index = MeetingsService.meetings.findIndex(
+      (m) => m.id === meeting.id,
+    );
     if (index !== -1) {
-      this.meetings[index] = meeting;
+      MeetingsService.meetings[index] = meeting;
     }
   }
 }

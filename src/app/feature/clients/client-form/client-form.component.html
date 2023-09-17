@@ -1,0 +1,47 @@
+<div class="container main-container">
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit($event)">
+    <div class="form-group">
+      <label for="name">Name*</label>
+      <input type="text" id="name" formControlName="name" class="form-control">
+      <div
+        *ngIf="clientForm.controls['name'].invalid && (clientForm.controls['name'].dirty || clientForm.controls['name'].touched)"
+        class="invalid-form-hint small">
+        <div *ngIf="clientForm.controls['name'].errors?.['required']">
+          Name is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="emails">Contacts</label>
+      <div>
+        <dl id="contacts-list">
+          <dd *ngFor="let contactEmail of contactEmails">{{ contactEmail.email }}
+            <button type="button" class="btn btn-sm" (click)="removeContactEmail(contactEmail)">
+              <i class="bi bi-x"></i>
+            </button>
+          </dd>
+        </dl>
+      </div>
+      <div
+        *ngIf="contactEmails.length < 1 && (clientForm.controls['email'].touched)"
+        class="invalid-form-hint small">
+        <div>Please add a least one contact email</div>
+      </div>
+      <div
+        *ngIf="clientForm.controls['email'].invalid && (clientForm.controls['email'].dirty || clientForm.controls['email'].touched)"
+        class="invalid-form-hint small">
+        <div>Invalid email</div>
+      </div>
+      <input type="email" id="emails" class="form-control" (keydown.tab)="addContactEmail($event)"
+             (keydown.enter)="addContactEmail($event)" (focusout)="addContactEmail($event)" formControlName="email">
+    </div>
+    <button type="button" (click)="onBackButtonClicked()" class="btn"><i class="bi bi-arrow-left"></i> Back</button>
+    <button type="submit" class="btn" [class.btn-outline-white]="!clientForm.valid || contactEmails.length < 1"
+            [class.btn-outline-main]="clientForm.valid && contactEmails.length > 0">Save
+    </button>
+  </form>
+</div>

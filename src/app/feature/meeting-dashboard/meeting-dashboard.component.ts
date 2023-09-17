@@ -9,12 +9,14 @@ import { NavItem } from '../../shared/types';
   styleUrls: ['./meeting-dashboard.component.scss'],
 })
 export class MeetingDashboardComponent {
-  meetings: Meeting[];
+  meetings: Meeting[] = [];
 
   alertMeetingAdded: boolean = false;
 
-  constructor(private meetingsService: MeetingsService) {
-    this.meetings = meetingsService.getMeetings().sort((a, b) => {
+  constructor() {}
+
+  ngOnInit() {
+    this.meetings = MeetingsService.getMeetings().sort((a, b) => {
       return new Date(a.startTime).getTime() - new Date(b.startTime).getTime();
     });
   }
@@ -26,7 +28,7 @@ export class MeetingDashboardComponent {
   }
 
   protected onAddMeeting(newMeeting: Partial<Meeting>) {
-    this.meetings = this.meetingsService.addMeeting(newMeeting).sort((a, b) => {
+    this.meetings = MeetingsService.addMeeting(newMeeting).sort((a, b) => {
       return new Date(a.startTime).getTime() - new Date(b.startTime).getTime();
     });
 
@@ -38,7 +40,7 @@ export class MeetingDashboardComponent {
 
   protected onDeleteMeeting(meetingId: number) {
     if (confirm('Are you sure that you want to delete this meeting?')) {
-      this.meetings = this.meetingsService.deleteMeetingById(meetingId);
+      this.meetings = MeetingsService.deleteMeetingById(meetingId);
     }
   }
 }

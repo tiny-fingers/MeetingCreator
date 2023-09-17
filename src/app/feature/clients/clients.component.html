@@ -1,0 +1,23 @@
+<app-navbar [activeNavItem]="NavItem.Clients"/>
+
+<div id="clients-carousel" class="carousel-wrapper">
+    <ngb-carousel [interval]="7000">
+        <ng-template ngbSlide *ngFor="let client of clients">
+            <img [src]="'assets/carousel-' + (client.id / 5 > 1 ? Math.trunc(client.id / 5) : client.id)  + '.jpg'" [alt]="'Client ' + client.id">
+            <div class="carousel-caption">
+                <h2 class="client-name">{{ client.name }}</h2>
+                <h4 class="client-description">{{ client.description }}</h4>
+                <h5 class="client-description">Contacts</h5>
+                <div class="client-contacts">
+                    <div *ngFor="let contact of client.contacts">
+                        <p>{{ contact.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+
+    <button type="button" class="btn btn-floating" (click)="onAddNewClientClicked()" ngbPopover="CLick to add a new client" #addClientPopover="ngbPopover" popoverPlacement="top" container="#clients-carousel">
+        <i class="bi bi-plus-circle"></i>
+    </button>
+</div>
