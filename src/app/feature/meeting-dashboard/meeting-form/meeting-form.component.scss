@@ -6,7 +6,13 @@
 .form-group {
   padding-bottom: 2vh;
 }
-
 .form-check {
   padding-bottom: 2vh;
+}
+#clientDropdown {
+  padding: 1vh 2vh;
+  border-color: #ad3a75;
+}
+.invalid-form-hint {
+  color: red;
 }

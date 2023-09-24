@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Meeting } from '../../root/model/Meeting';
+import { ClientsService } from '../clients/clients.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class MeetingsService {
       endTime: new Date(2023, 9, 15, 11, 0),
       remote: false,
       createdBy: 1,
-      attendees: [],
+      client: ClientsService.getClients()[1],
     },
     {
       id: 2,
@@ -24,7 +25,7 @@ export class MeetingsService {
       endTime: new Date(2023, 9, 15, 11, 0),
       remote: true,
       createdBy: 1,
-      attendees: [],
+      client: ClientsService.getClients()[0],
     },
     {
       id: 3,
@@ -34,7 +35,7 @@ export class MeetingsService {
       endTime: new Date(2023, 9, 20, 11, 0),
       remote: true,
       createdBy: 1,
-      attendees: [],
+      client: ClientsService.getClients()[2],
     },
     {
       id: 4,
@@ -44,7 +45,7 @@ export class MeetingsService {
       endTime: new Date(2023, 12, 20, 22, 0),
       remote: false,
       createdBy: 1,
-      attendees: [],
+      client: ClientsService.getClients()[1],
     },
   ];
 

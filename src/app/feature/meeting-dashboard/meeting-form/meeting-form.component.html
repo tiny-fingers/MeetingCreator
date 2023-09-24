@@ -1,23 +1,63 @@
 <div class="form-container">
     <form [formGroup]="meetingFormGroup" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="title">Title</label>
+            <label for="title">Title*</label>
+            <div *ngIf="meetingFormGroup.controls['title'].invalid && (meetingFormGroup.controls['title'].dirty || meetingFormGroup.controls['title'].touched)"
+                 class="invalid-form-hint small">
+                <div *ngIf="meetingFormGroup.controls['title'].errors?.['required']">
+                    Required field
+                </div>
+            </div>
             <input type="text" class="form-control" id="title" formControlName="title" required>
         </div>
 
         <div class="form-group">
-            <label for="description">Description</label>
+            <label for="description">Description*</label>
+            <div *ngIf="meetingFormGroup.controls['description'].invalid && (meetingFormGroup.controls['description'].dirty || meetingFormGroup.controls['description'].touched)"
+                 class="invalid-form-hint small">
+                <div *ngIf="meetingFormGroup.controls['description'].errors?.['required']">
+                    Required field
+                </div>
+            </div>
             <textarea class="form-control" id="description" formControlName="description" required></textarea>
         </div>
 
         <div class="form-group">
-            <label for="startTime">Start Time</label>
+            <label for="startTime">Start Time*</label>
+            <div *ngIf="meetingFormGroup.controls['startTime'].invalid && (meetingFormGroup.controls['startTime'].dirty || meetingFormGroup.controls['startTime'].touched)"
+                 class="invalid-form-hint small">
+                <div *ngIf="meetingFormGroup.controls['startTime'].errors?.['required']">
+                    Required field
+                </div>
+            </div>
             <input type="datetime-local" class="form-control" id="startTime" formControlName="startTime" required>
         </div>
 
         <div class="form-group">
-            <label for="endTime">End Time</label>
+            <label for="endTime">End Time*</label>
+            <div *ngIf="meetingFormGroup.controls['endTime'].invalid && (meetingFormGroup.controls['endTime'].dirty || meetingFormGroup.controls['endTime'].touched)"
+                 class="invalid-form-hint small">
+                <div *ngIf="meetingFormGroup.controls['endTime'].errors?.['required']">
+                    Required field
+                </div>
+            </div>
+            <div *ngIf="meetingFormGroup.controls['endTime'].errors?.['startTimeAfterEndTime']"
+                 class="invalid-form-hint small">
+                End time cannot be before start time
+            </div>
             <input type="datetime-local" class="form-control" id="endTime" formControlName="endTime" required>
+        </div>
+
+        <div class="form-group">
+            <div ngbDropdown>
+                <button class="btn-outline-white dropdown-toggle" type="button" id="clientDropdown" ngbDropdownToggle>
+                    {{selectedClient ? selectedClient.name : 'Select a client'}}
+                </button>
+                <div ngbDropdownMenu aria-labelledby="clientDropdown">
+                    <a ngbDropdownItem *ngFor="let client of clients"
+                       (click)="selectClient(client)">{{ client.name }}</a>
+                </div>
+            </div>
         </div>
 
         <div class="form-check">

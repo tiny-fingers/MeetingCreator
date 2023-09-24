@@ -4,6 +4,7 @@
       <button type="button" class="btn-close" (click)="closeMeetingInfo()" aria-label="Close"></button>
     <h3 class="card-title">{{ title }}</h3>
     <p class="card-text meeting">{{ description }}</p>
+    <h6 class="card-text meeting">Client: {{ client.name }}</h6>
     <p class="card-text meeting">{{ startTime | date: 'dd. MMM yyyy' }}</p>
 
     <p class="card-text meeting">{{ startTime | date: 'HH:mm'}}

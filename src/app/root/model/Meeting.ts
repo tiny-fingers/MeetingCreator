@@ -9,5 +9,5 @@ export interface Meeting {
   location?: string;
   remote: boolean;
   createdBy: number;
-  attendees: Client[];
+  client: Client;
 }

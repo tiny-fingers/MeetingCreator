@@ -8,6 +8,7 @@
                     <app-meeting-info [title]=meeting.title [description]=meeting.description
                                       [startTime]=meeting.startTime [endTime]=meeting.endTime
                                       [remote]=meeting.remote
+                                      [client]="meeting.client"
                                       [id]=meeting.id
                                       (deleteMeeting)="onDeleteMeeting($event)"/>
                 </div>

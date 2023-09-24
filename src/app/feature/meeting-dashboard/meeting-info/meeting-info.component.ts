@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Client } from '../../../root/model/Client';
 
 @Component({
   selector: 'app-meeting-info',
@@ -13,6 +14,7 @@ export class MeetingInfoComponent {
   @Input() endTime!: Date;
   @Input() remote!: Boolean;
   @Input() id!: number;
+  @Input() client!: Client;
 
   @Output() deleteMeeting: EventEmitter<number> = new EventEmitter();
 
