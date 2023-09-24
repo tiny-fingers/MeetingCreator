@@ -8,7 +8,7 @@
   </div>
   <div class="row buttons-row" *ngIf="!authService.isAuthenticated()">
     <div class="col text-center align-self-center">
-      <button class="btn btn-outline-white" id="create-account-btn">Create account</button>
+      <button class="btn btn-outline-white" id="create-account-btn" (click)="alert('Feature not yet available')">Create account</button>
       <button class="btn btn-outline-main" id='sign-in-btn' (click)="onSignInCLick()">Sign in</button>
     </div>
   </div>

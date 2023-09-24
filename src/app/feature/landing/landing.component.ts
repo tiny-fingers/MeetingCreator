@@ -20,4 +20,6 @@ export class LandingComponent {
   onSignInCLick() {
     void this.router.navigate(['/login']);
   }
+
+  protected readonly alert = alert;
 }
