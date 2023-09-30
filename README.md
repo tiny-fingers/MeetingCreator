@@ -6,7 +6,10 @@ See the pdf file in root folder to see the creation of the jira board
 
 # MeetingCreator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+Boostrap for Angular is used for designing the UI.
+
+Protractor and Cucumber are used for BDD e2e testing.
 
 ## Development server
 
