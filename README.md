@@ -1,3 +1,9 @@
+## App demo
+See the .mov file meeting-creator-demo.mov in the root folder
+
+## Jira board doc for this project
+See the pdf file in root folder to see the creation of the jira board
+
 # MeetingCreator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
